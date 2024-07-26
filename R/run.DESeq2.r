@@ -15,7 +15,7 @@
 #' @param ... optional arguments to be passed to \code{nbinomWaldTest()}
 #' @return A list containing the \code{dds} object (\code{DESeqDataSet} class), the \code{results} objects (\code{DESeqResults} class) and the vector of size factors
 #' @author Hugo Varet
-library('HTSFilter')
+
 run.DESeq2 <- function(counts, target, varInt, batch=NULL,
                        locfunc="median", fitType="parametric", pAdjustMethod="BH",
                        cooksCutoff=TRUE, independentFiltering=TRUE, alpha=0.05, ...){
