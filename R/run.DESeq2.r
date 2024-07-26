@@ -23,8 +23,8 @@ run.DESeq2 <- function(counts, target, varInt, batch=NULL,
   dds <- DESeqDataSetFromMatrix(countData=counts, colData=target, 
                                 design=formula(paste("~", ifelse(!is.null(batch), paste(batch,"+"), ""), varInt)))
   cat("Design of the statistical model:\n")
-  cat(paste(as.character(design(dds)), collapse=" "),"\n")					  
-  
+  cat(paste(as.character(design(dds)), collapse=" "),"\n")
+  dds <- HTSFilter(dds, plot=F)$filteredData
   # normalization
   dds <- estimateSizeFactors(dds,locfunc=eval(as.name(locfunc)))
   cat("\nNormalization factors:\n")
